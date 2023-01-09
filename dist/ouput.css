@@ -515,18 +515,9 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.text-\[\#ff000\]{
-  color: #ff000;
-}
-
 .text-\[red\]{
   --tw-text-opacity: 1;
   color: rgb(255 0 0 / var(--tw-text-opacity));
-}
-
-.text-\[blue\]{
-  --tw-text-opacity: 1;
-  color: rgb(0 0 255 / var(--tw-text-opacity));
 }
 
 * {
