@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  height: 100vh;
+}
+
+main {
+  > header {
+    background-image: url("/images/bg-desktop-dark.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .todo_Container {
+    transform: translate(-50%, -40vh);
+  }
+}
+
+@layer components {
+  .render {
+    @apply bg-veryDarkBlue w-full pl-[10px] pr-[10px] pt-[5px] pb-[5px] flex items-center;
+
+    > input[type="checkbox"] {
+      appearance: none;
+      width: 18px;
+      height: 17px;
+      border-radius: 50%;
+      background-color: hsl(235, 24%, 19%);
+      cursor: pointer;
+
+      &:checked {
+        display: block;
+        background-color: blue;
+      }
+    }
+
+    > input[type="text"] {
+      outline: none;
+      padding-inline-start: 10px;
+      padding-inline-end: 10px;
+      background-color: hsl(235, 21%, 11%);
+      color: #fff;
+      height: 40px;
+    }
+  }
+}
+
+.renderedEl {
+  border-bottom: 1px solid hsl(0, 0%, 98%);
+}

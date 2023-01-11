@@ -515,6 +515,157 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.render{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  --tw-bg-opacity: 1;
+  background-color: hsl(235 21% 11% / var(--tw-bg-opacity));
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.render > input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: hsl(235deg, 24%, 19%);
+  cursor: pointer;
+}
+
+.render > input[type=checkbox]:checked {
+  display: block;
+  background-color: blue;
+}
+
+.render > input[type=text] {
+  outline: none;
+  -webkit-padding-start: 10px;
+  padding-inline-start: 10px;
+  -webkit-padding-end: 10px;
+  padding-inline-end: 10px;
+  background-color: hsl(235deg, 21%, 11%);
+  color: #fff;
+  height: 40px;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.top-\[50\%\]{
+  top: 50%;
+}
+
+.left-\[50\%\]{
+  left: 50%;
+}
+
+.left-5{
+  left: 1.25rem;
+}
+
+.bottom-5{
+  bottom: 1.25rem;
+}
+
+.mb-\[20px\]{
+  margin-bottom: 20px;
+}
+
+.mt-\[20px\]{
+  margin-top: 20px;
+}
+
+.flex{
+  display: flex;
+}
+
+.h-screen{
+  height: 100vh;
+}
+
+.h-\[40vh\]{
+  height: 40vh;
+}
+
+.h-auto{
+  height: auto;
+}
+
+.w-screen{
+  width: 100vw;
+}
+
+.w-\[400px\]{
+  width: 400px;
+}
+
+.w-full{
+  width: 100%;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.bg-veryDarkDesaturatedBlue{
+  --tw-bg-opacity: 1;
+  background-color: hsl(235 24% 19% / var(--tw-bg-opacity));
+}
+
+.bg-veryDarkBlue{
+  --tw-bg-opacity: 1;
+  background-color: hsl(235 21% 11% / var(--tw-bg-opacity));
+}
+
+.pt-\[12px\]{
+  padding-top: 12px;
+}
+
+.pb-\[12px\]{
+  padding-bottom: 12px;
+}
+
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.font-bold{
+  font-weight: 700;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.tracking-widest{
+  letter-spacing: 0.1em;
+}
+
+.tracking-\[10px\]{
+  letter-spacing: 10px;
+}
+
+.text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .text-\[red\]{
   --tw-text-opacity: 1;
   color: rgb(255 0 0 / var(--tw-text-opacity));
@@ -528,4 +679,20 @@ video {
 
 body {
   font-family: "Josefin Sans", sans-serif;
+  height: 100vh;
 }
+
+main > header {
+  background-image: url("/images/bg-desktop-dark.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+main .todo_Container {
+  transform: translate(-50%, -40vh);
+}
+
+.renderedEl {
+  border-bottom: 1px solid hsl(0deg, 0%, 98%);
+}
+/*# sourceMappingURL=ouput.css.map */
