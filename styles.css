@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style-type: none;
 }
 
 body {
@@ -24,9 +25,9 @@ main .todo_Container {
 
 @layer components {
   .render {
-    @apply bg-veryDarkBlue w-full pl-[10px] pr-[10px] pt-[5px] pb-[5px] flex items-center;
+    @apply bg-veryDarkDesaturatedBlue w-full pl-[10px] pr-[10px] pt-[5px] pb-[5px] flex items-center;
   }
-  .render > input[type=checkbox] {
+  input[type=checkbox] {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
@@ -35,22 +36,57 @@ main .todo_Container {
     border-radius: 50%;
     background-color: hsl(235deg, 24%, 19%);
     cursor: pointer;
+    border: 1px solid gray;
   }
-  .render > input[type=checkbox]:checked {
+  input[type=checkbox]:checked {
     display: block;
     background-color: blue;
   }
-  .render > input[type=text] {
-    outline: none;
-    -webkit-padding-start: 10px;
-            padding-inline-start: 10px;
-    -webkit-padding-end: 10px;
-            padding-inline-end: 10px;
-    background-color: hsl(235deg, 21%, 11%);
-    color: #fff;
-    height: 40px;
-  }
 }
+input[type=text] {
+  outline: none;
+  -webkit-padding-start: 10px;
+          padding-inline-start: 10px;
+  -webkit-padding-end: 10px;
+          padding-inline-end: 10px;
+  color: #fff;
+  height: 40px;
+}
+
 .renderedEl {
   border-bottom: 1px solid hsl(0deg, 0%, 98%);
+}
+
+@layer components {
+  .elementStates > p {
+    @apply w-full pl-[5px] pr-[5px];
+  }
+}
+@layer components {
+  .menuBtn p {
+    @apply text-[14px] cursor-pointer text-darkGrayishBlue hover:text-white;
+  }
+}
+p.activeEl {
+  color: blue;
+}
+
+input.checker:checked + p {
+  text-decoration: line-through;
+  transition: all 0.5 ease;
+  color: gray;
+}
+
+figure {
+  visibility: hidden;
+}
+
+.renderedEl:hover figure {
+  visibility: visible;
+}
+
+@layer components {
+  .attribution > a {
+    @apply text-[red];
+  }
 }/*# sourceMappingURL=styles.css.map */

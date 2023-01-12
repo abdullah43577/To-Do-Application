@@ -14,10 +14,10 @@
     <title>Frontend Mentor | Todo app</title>
   </head>
   <body>
-    <main class="relative bg-veryDarkDesaturatedBlue h-screen">
+    <main class="relative bg-veryDarkBlue h-screen">
       <header class="h-[40vh] w-screen"></header>
 
-      <div class="todo_Container absolute top-[50%] left-[50%] w-[400px]">
+      <div class="todo_Container absolute top-[50%] left-[50%] w-[600px]">
         <div class="hd flex items-center justify-between mb-[20px]">
           <h1
             class="uppercase tracking-widest text-3xl text-white font-bold tracking-[10px]"
@@ -33,18 +33,27 @@
           <form action="">
             <div class="input render">
               <input type="checkbox" />
-              <input type="text" class="w-full bg-veryDarkBlue" />
+              <input type="text" class="w-full bg-veryDarkDesaturatedBlue" />
             </div>
 
             <div class="lists h-auto mt-[20px]">
-              <ul>
-                <li>
-                  <div class="renderedEl render pt-[12px] pb-[12px]">
-                    <input type="checkbox" />
-                    <!-- <input type="text" class="w-full" /> -->
-                  </div>
-                </li>
-              </ul>
+              <ul></ul>
+
+              <div
+                class="menuBtn flex items-center justify-around bg-veryDarkDesaturatedBlue p-[10px]"
+              >
+                <div class="listElement">
+                  <p>0 items left</p>
+                </div>
+                <div class="elementStates flex justify-center">
+                  <p class="activeEl">All</p>
+                  <p>Active</p>
+                  <p>Completed</p>
+                </div>
+                <div class="delStates">
+                  <p>Clear Completed</p>
+                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -54,10 +63,7 @@
     <footer class="absolute left-5 bottom-5">
       <div class="attribution">
         Challenge by
-        <a
-          href="https://www.frontendmentor.io?ref=challenge"
-          class="text-[red]"
-          target="_blank"
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
         >. Coded by
         <a
@@ -69,5 +75,7 @@
     </footer>
 
     <script src="/app/script.js"></script>
+    <script src="/app/crossDelete.js"></script>
+    <script src="/app/menu.js"></script>
   </body>
 </html>
