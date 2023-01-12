@@ -10,8 +10,6 @@ const deleteEl = function () {
       renderedElement[i].remove();
 
       myArray.splice(i, 1);
-      console.log(myArray);
-      //   location.reload();
 
       // Update the items counter
       updateMe();

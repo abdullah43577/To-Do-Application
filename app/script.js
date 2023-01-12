@@ -6,7 +6,6 @@ const listItem = document.querySelector("ul");
 const form = document.querySelector("form");
 const itemsLeft = document.querySelector(".listElement > p");
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myArray"));
-console.log(leadsFromLocalStorage);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -44,7 +43,6 @@ input.addEventListener("keyup", (e) => {
     let inputEl = input.value;
     myArray.push(inputEl);
 
-    // saving the myArray array to localStorage (localStorages only accepts strings as input not objects or arrays, hence the need for the JSON.stringify)
     localStorage.setItem("myArray", JSON.stringify(myArray));
 
     render(myArray);
@@ -62,5 +60,7 @@ if (leadsFromLocalStorage) {
   myArray = leadsFromLocalStorage;
   render(myArray);
 
-  itemsLeft.textContent = `${myArray.length} items left`;
+  //   itemsLeft.textContent = `${myArray.length} items left`;
+  //   updateMe();
+  //   deleteEl();
 }
