@@ -17,26 +17,29 @@
     <main class="relative bg-veryDarkBlue h-screen">
       <header class="h-[40vh] w-screen"></header>
 
-      <div class="todo_Container absolute top-[50%] left-[50%] w-[600px]">
+      <div
+        class="todo_Container absolute top-[50%] left-[50%] w-[600px] translate-x-[-50%] translate-y-[-40vh]"
+      >
         <div class="hd flex items-center justify-between mb-[20px]">
           <h1
             class="uppercase tracking-widest text-3xl text-white font-bold tracking-[10px]"
           >
             todo
           </h1>
-          <figcaption>
+          <figcaption class="cursor-pointer">
             <img src="/images/icon-sun.svg" alt="icon sun" />
           </figcaption>
         </div>
 
         <div class="form_Container">
-          <form action="">
+          <form>
             <div class="input render">
               <input type="checkbox" />
               <input type="text" class="w-full bg-veryDarkDesaturatedBlue" />
             </div>
 
             <div class="lists h-auto mt-[20px]">
+              <!-- dynamically rendered element -->
               <ul></ul>
 
               <div
@@ -75,7 +78,5 @@
     </footer>
 
     <script src="/app/script.js"></script>
-    <script src="/app/crossDelete.js"></script>
-    <script src="/app/menu.js"></script>
   </body>
 </html>

@@ -631,6 +631,16 @@ input[type=checkbox]:checked {
   width: auto;
 }
 
+.translate-x-\[-50\%\]{
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-\[-40vh\]{
+  --tw-translate-y: -40vh;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .cursor-pointer{
   cursor: pointer;
 }
@@ -703,6 +713,10 @@ input[type=checkbox]:checked {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -715,14 +729,10 @@ body {
   height: 100vh;
 }
 
-main > header {
+header {
   background-image: url("/images/bg-desktop-dark.jpg");
   background-size: cover;
   background-position: center;
-}
-
-main .todo_Container {
-  transform: translate(-50%, -40vh);
 }
 
 input[type=text] {

@@ -16,16 +16,10 @@ body {
   height: 100vh;
 }
 
-main {
-  > header {
-    background-image: url("/images/bg-desktop-dark.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-
-  .todo_Container {
-    transform: translate(-50%, -40vh);
-  }
+header {
+  background-image: url("/images/bg-desktop-dark.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 @layer components {

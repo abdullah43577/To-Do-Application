@@ -14,3 +14,12 @@
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
 .prettierignore
+
+# Avoid project littered with annoying node_modules
+node_modules
+
+# Remove the css map file of CSS, SCSS / Sass
+./*.css.map
+
+# Remove the style guide
+style-guide.md

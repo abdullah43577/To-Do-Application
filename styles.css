@@ -14,13 +14,10 @@ body {
   height: 100vh;
 }
 
-main > header {
+header {
   background-image: url("/images/bg-desktop-dark.jpg");
   background-size: cover;
   background-position: center;
-}
-main .todo_Container {
-  transform: translate(-50%, -40vh);
 }
 
 @layer components {

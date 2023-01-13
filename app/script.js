@@ -1,11 +1,13 @@
 "use strict";
 
-let myArray = [];
+let listItems = [];
+let newListItems = [];
+let completedItems = [];
 const input = document.querySelector('input[type="text"]');
 const listItem = document.querySelector("ul");
 const form = document.querySelector("form");
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("listItems"));
 const itemsLeft = document.querySelector(".listElement > p");
-const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myArray"));
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -36,19 +38,22 @@ const render = (arr) => {
 
   // empty input field
   input.value = "";
+
+  if (countItems) countItems();
+  else return;
 };
 
 input.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") {
+  if (input.value && e.key === "Enter") {
     let inputEl = input.value;
-    myArray.push(inputEl);
+    listItems.push(inputEl);
 
-    localStorage.setItem("myArray", JSON.stringify(myArray));
+    localStorage.setItem("listItems", JSON.stringify(listItems));
 
-    render(myArray);
+    render(listItems);
 
     // Update the items counter
-    updateMe();
+    countItems();
 
     // invoking the delete button function
     deleteEl();
@@ -57,10 +62,38 @@ input.addEventListener("keyup", (e) => {
 
 // check if leads in localStorage
 if (leadsFromLocalStorage) {
-  myArray = leadsFromLocalStorage;
-  render(myArray);
+  listItems = leadsFromLocalStorage;
+  render(listItems);
+  countItems();
+  deleteEl();
+}
 
-  //   itemsLeft.textContent = `${myArray.length} items left`;
-  //   updateMe();
-  //   deleteEl();
+// implementation of the cross delete button
+function deleteEl() {
+  const del = document.querySelectorAll("figure");
+  const renderedElement = document.querySelectorAll(".renderedEl");
+
+  del.forEach((delBTN, i) => {
+    delBTN.addEventListener("click", () => {
+      renderedElement[i].remove();
+
+      newListItems = listItems.filter(
+        (deletedWord) => deletedWord != listItems[i]
+      );
+
+      localStorage.setItem("listItems", JSON.stringify(newListItems));
+      const newStorage = JSON.parse(localStorage.getItem("listItems"));
+      newListItems = newStorage;
+      render(newListItems);
+      location.reload();
+
+      // Update the items counter
+      countItems();
+    });
+  });
+}
+
+// update items counter
+function countItems() {
+  itemsLeft.textContent = `${listItems.length} items left`;
 }
