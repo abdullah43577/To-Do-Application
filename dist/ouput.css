@@ -527,6 +527,10 @@ video {
   padding-bottom: 5px;
 }
 
+.render.renderActive {
+  background: hsl(0deg, 0%, 98%);
+}
+
 input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -542,6 +546,10 @@ input[type=checkbox] {
 input[type=checkbox]:checked {
   display: block;
   background-color: blue;
+}
+
+input[type=checkbox].checkboxActive {
+  background: hsl(0deg, 0%, 98%);
 }
 
 .elementStates > p{
@@ -603,6 +611,10 @@ input[type=checkbox]:checked {
   display: flex;
 }
 
+.hidden{
+  display: none;
+}
+
 .h-screen{
   height: 100vh;
 }
@@ -659,6 +671,10 @@ input[type=checkbox]:checked {
 
 .justify-around{
   justify-content: space-around;
+}
+
+.rounded{
+  border-radius: 0.25rem;
 }
 
 .bg-veryDarkBlue{
@@ -729,10 +745,18 @@ body {
   height: 100vh;
 }
 
-header {
+main.white-bg {
+  background: hsl(0deg, 0%, 98%);
+}
+
+main > header {
   background-image: url("/images/bg-desktop-dark.jpg");
   background-size: cover;
   background-position: center;
+}
+
+main > header.headerActive {
+  background-image: url("/images/bg-desktop-light.jpg");
 }
 
 input[type=text] {
@@ -741,12 +765,41 @@ input[type=text] {
   padding-inline-start: 10px;
   -webkit-padding-end: 10px;
   padding-inline-end: 10px;
-  color: #fff;
+  color: hsl(233deg, 11%, 84%);
   height: 40px;
+}
+
+input[type=text].inputActive {
+  background-color: hsl(0deg, 0%, 98%);
+  color: hsl(235deg, 24%, 19%);
+}
+
+.todo > p {
+  color: hsl(233deg, 11%, 84%);
+}
+
+.todo > p.activeTxt {
+  color: hsl(236deg, 9%, 61%);
 }
 
 .renderedEl {
   border-bottom: 1px solid hsl(0deg, 0%, 98%);
+}
+
+.render.whiteBox {
+  background: hsl(0deg, 0%, 98%);
+}
+
+.menuBtn.menuActive {
+  background: hsl(0deg, 0%, 98%);
+}
+
+.menuBtn > div > p.activeParagraph {
+  color: hsl(236deg, 9%, 61%);
+}
+
+.menuBtn > div > p.activeParagraph:hover {
+  color: hsl(235deg, 24%, 19%);
 }
 
 p.activeEl {
@@ -765,5 +818,9 @@ figure {
 
 .renderedEl:hover figure {
   visibility: visible;
+}
+
+.todo > p.whiteTxt {
+  color: #fff;
 }
 /*# sourceMappingURL=ouput.css.map */

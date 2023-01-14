@@ -26,19 +26,25 @@
           >
             todo
           </h1>
-          <figcaption class="cursor-pointer">
+          <!-- sun icon -->
+          <figcaption class="cursor-pointer sun">
             <img src="/images/icon-sun.svg" alt="icon sun" />
+          </figcaption>
+
+          <!-- moon icon -->
+          <figcaption class="cursor-pointer moon hidden">
+            <img src="/images/icon-moon.svg" alt="icon moon`" />
           </figcaption>
         </div>
 
         <div class="form_Container">
           <form>
-            <div class="input render">
-              <input type="checkbox" />
+            <div class="input render rounded">
+              <input type="checkbox" disabled />
               <input type="text" class="w-full bg-veryDarkDesaturatedBlue" />
             </div>
 
-            <div class="lists h-auto mt-[20px]">
+            <div class="lists h-auto mt-[20px] rounded">
               <!-- dynamically rendered element -->
               <ul></ul>
 
@@ -78,5 +84,6 @@
     </footer>
 
     <script src="/app/script.js"></script>
+    <script src="/app/background.js"></script>
   </body>
 </html>

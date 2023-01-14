@@ -2,12 +2,13 @@
 
 let listItems = [];
 let newListItems = [];
-let completedItems = [];
+let completedTodo = [];
 const input = document.querySelector('input[type="text"]');
 const listItem = document.querySelector("ul");
 const form = document.querySelector("form");
-const leadsFromLocalStorage = JSON.parse(localStorage.getItem("listItems"));
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem("listItems"));
 const itemsLeft = document.querySelector(".listElement > p");
+const completed = document.querySelector(".activeEl + p + p");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -39,8 +40,7 @@ const render = (arr) => {
   // empty input field
   input.value = "";
 
-  if (countItems) countItems();
-  else return;
+  countItems();
 };
 
 input.addEventListener("keyup", (e) => {
@@ -51,12 +51,8 @@ input.addEventListener("keyup", (e) => {
     localStorage.setItem("listItems", JSON.stringify(listItems));
 
     render(listItems);
-
-    // Update the items counter
-    countItems();
-
-    // invoking the delete button function
     deleteEl();
+    // completedItems();
   }
 });
 
@@ -81,11 +77,8 @@ function deleteEl() {
         (deletedWord) => deletedWord != listItems[i]
       );
 
-      localStorage.setItem("listItems", JSON.stringify(newListItems));
-      const newStorage = JSON.parse(localStorage.getItem("listItems"));
-      newListItems = newStorage;
-      render(newListItems);
-      location.reload();
+      listItems = newListItems;
+      localStorage.setItem("listItems", JSON.stringify(listItems));
 
       // Update the items counter
       countItems();
@@ -97,3 +90,22 @@ function deleteEl() {
 function countItems() {
   itemsLeft.textContent = `${listItems.length} items left`;
 }
+
+function completedItems() {
+  completed.addEventListener("click", () => {
+    const checkboxes = document.querySelectorAll(".checker");
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) console.log(checked);
+    });
+  });
+}
+
+// completed.addEventListener("click", () => {
+//   const checkboxes = document.querySelectorAll(".checker");
+//   console.log(checkboxes);
+
+//   checkboxes.forEach((checkbox, i) => {
+//     if (checkboxes[i].checked) console.log(checkbox.checked);
+//   });
+// });

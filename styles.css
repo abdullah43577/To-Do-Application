@@ -14,15 +14,24 @@ body {
   height: 100vh;
 }
 
-header {
+main.white-bg {
+  background: hsl(0deg, 0%, 98%);
+}
+main > header {
   background-image: url("/images/bg-desktop-dark.jpg");
   background-size: cover;
   background-position: center;
+}
+main > header.headerActive {
+  background-image: url("/images/bg-desktop-light.jpg");
 }
 
 @layer components {
   .render {
     @apply bg-veryDarkDesaturatedBlue w-full pl-[10px] pr-[10px] pt-[5px] pb-[5px] flex items-center;
+  }
+  .render.renderActive {
+    background: hsl(0deg, 0%, 98%);
   }
   input[type=checkbox] {
     -webkit-appearance: none;
@@ -39,6 +48,9 @@ header {
     display: block;
     background-color: blue;
   }
+  input[type=checkbox].checkboxActive {
+    background: hsl(0deg, 0%, 98%);
+  }
 }
 input[type=text] {
   outline: none;
@@ -46,12 +58,27 @@ input[type=text] {
           padding-inline-start: 10px;
   -webkit-padding-end: 10px;
           padding-inline-end: 10px;
-  color: #fff;
+  color: hsl(233deg, 11%, 84%);
   height: 40px;
+}
+input[type=text].inputActive {
+  background-color: hsl(0deg, 0%, 98%);
+  color: hsl(235deg, 24%, 19%);
+}
+
+.todo > p {
+  color: hsl(233deg, 11%, 84%);
+}
+.todo > p.activeTxt {
+  color: hsl(236deg, 9%, 61%);
 }
 
 .renderedEl {
   border-bottom: 1px solid hsl(0deg, 0%, 98%);
+}
+
+.render.whiteBox {
+  background: hsl(0deg, 0%, 98%);
 }
 
 @layer components {
@@ -64,6 +91,16 @@ input[type=text] {
     @apply text-[14px] cursor-pointer text-darkGrayishBlue hover:text-white;
   }
 }
+.menuBtn.menuActive {
+  background: hsl(0deg, 0%, 98%);
+}
+.menuBtn > div > p.activeParagraph {
+  color: hsl(236deg, 9%, 61%);
+}
+.menuBtn > div > p.activeParagraph:hover {
+  color: hsl(235deg, 24%, 19%);
+}
+
 p.activeEl {
   color: blue;
 }
@@ -80,6 +117,10 @@ figure {
 
 .renderedEl:hover figure {
   visibility: visible;
+}
+
+.todo > p.whiteTxt {
+  color: #fff;
 }
 
 @layer components {
