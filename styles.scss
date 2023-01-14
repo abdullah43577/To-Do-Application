@@ -124,7 +124,6 @@ p.activeEl {
 
 input.checker:checked + p {
   text-decoration: line-through;
-  transition: all 0.5 ease;
   color: gray;
 }
 
@@ -142,6 +141,10 @@ figure {
 
 li {
   text-transform: capitalize;
+
+  p {
+    transition: all 1s ease-in-out;
+  }
 }
 
 // footer

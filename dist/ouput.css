@@ -631,10 +631,6 @@ input[type=checkbox].checkboxActive {
   width: 100vw;
 }
 
-.w-\[600px\]{
-  width: 600px;
-}
-
 .w-full{
   width: 100%;
 }
@@ -808,7 +804,6 @@ p.activeEl {
 
 input.checker:checked + p {
   text-decoration: line-through;
-  transition: all 0.5 ease;
   color: gray;
 }
 
@@ -826,5 +821,27 @@ figure {
 
 li {
   text-transform: capitalize;
+}
+
+li p {
+  transition: all 1s ease-in-out;
+}
+
+@media (min-width: 480px){
+  .sm\:w-\[450px\]{
+    width: 450px;
+  }
+}
+
+@media (min-width: 768px){
+  .md\:w-\[700px\]{
+    width: 700px;
+  }
+}
+
+@media (min-width: 976px){
+  .lg\:w-\[900px\]{
+    width: 900px;
+  }
 }
 /*# sourceMappingURL=ouput.css.map */

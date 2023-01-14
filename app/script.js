@@ -8,7 +8,7 @@ const listItem = document.querySelector("ul");
 const form = document.querySelector("form");
 let leadsFromLocalStorage = JSON.parse(localStorage.getItem("listItems"));
 const itemsLeft = document.querySelector(".listElement > p");
-const completed = document.querySelector(".activeEl + p + p");
+// const completed = document.querySelector(".activeEl + p + p");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -102,9 +102,15 @@ function completedItems() {
 
 // completed.addEventListener("click", () => {
 //   const checkboxes = document.querySelectorAll(".checker");
-//   console.log(checkboxes);
+//   // console.log(checkboxes);
 
 //   checkboxes.forEach((checkbox, i) => {
-//     if (checkboxes[i].checked) console.log(checkbox.checked);
+//     if (checkbox.checked) {
+//       console.log(checkbox.checked);
+//       let test = [];
+//       test.filter((item) => listItems[i]);
+//       completedItems = test;
+//       console.log(completedItems);
+//     }
 //   });
 // });
