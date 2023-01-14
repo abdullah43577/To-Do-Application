@@ -9,7 +9,7 @@ const checkers = document.querySelectorAll('input[type="checkbox"]');
 const menuBG = document.querySelector(".menuBtn");
 const menuPlaceholders = document.querySelectorAll(".menuBtn > div > p");
 const ulItems = document.querySelectorAll(".render");
-const paragraph = document.querySelectorAll(".todo > p");
+// const paragraph = document.querySelectorAll(".todo > p");
 // const renderedEl = document.querySelectorAll(".renderedEl");
 
 sunSvg.addEventListener("click", () => {

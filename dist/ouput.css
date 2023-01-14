@@ -823,4 +823,8 @@ figure {
 .todo > p.whiteTxt {
   color: #fff;
 }
+
+li {
+  text-transform: capitalize;
+}
 /*# sourceMappingURL=ouput.css.map */

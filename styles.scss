@@ -140,6 +140,10 @@ figure {
   color: #fff;
 }
 
+li {
+  text-transform: capitalize;
+}
+
 // footer
 @layer components {
   .attribution > a {

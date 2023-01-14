@@ -123,6 +123,10 @@ figure {
   color: #fff;
 }
 
+li {
+  text-transform: capitalize;
+}
+
 @layer components {
   .attribution > a {
     @apply text-[red];

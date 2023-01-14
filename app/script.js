@@ -37,9 +37,6 @@ const render = (arr) => {
   listItem.innerHTML = listEl;
   listEl = "";
 
-  // empty input field
-  input.value = "";
-
   countItems();
 };
 
@@ -49,6 +46,8 @@ input.addEventListener("keyup", (e) => {
     listItems.push(inputEl);
 
     localStorage.setItem("listItems", JSON.stringify(listItems));
+    // empty input field
+    input.value = "";
 
     render(listItems);
     deleteEl();
