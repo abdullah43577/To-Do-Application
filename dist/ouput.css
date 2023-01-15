@@ -799,11 +799,11 @@ input[type=text].inputActive {
   background: hsl(0deg, 0%, 98%);
 }
 
-.menuBtn > div > p.activeParagraph {
+.menuBtn.menuActive > div > p.activeParagraph {
   color: hsl(236deg, 9%, 61%);
 }
 
-.menuBtn > div > p.activeParagraph:hover {
+.menuBtn.menuActive > div > p.activeParagraph:hover {
   color: hsl(235deg, 24%, 19%);
 }
 

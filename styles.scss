@@ -116,13 +116,13 @@ input[type="text"] {
 .menuBtn {
   &.menuActive {
     background: hsl(0, 0%, 98%);
-  }
 
-  > div > p.activeParagraph {
-    color: hsl(236, 9%, 61%);
+    > div > p.activeParagraph {
+      color: hsl(236, 9%, 61%);
 
-    &:hover {
-      color: hsl(235, 24%, 19%);
+      &:hover {
+        color: hsl(235, 24%, 19%);
+      }
     }
   }
 }

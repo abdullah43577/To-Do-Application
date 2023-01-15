@@ -25,8 +25,8 @@ sunSvg.addEventListener("click", () => {
   checkers.forEach((checkbox) => checkbox.classList.add("checkboxActive"));
   menuBG.classList.add("menuActive");
 
-  menuPlaceholders.forEach((placeholders) =>
-    placeholders.classList.add("activeParagragh")
+  menuPlaceholders.forEach((placeholder) =>
+    placeholder.classList.toggle("activeParagragh")
   );
 });
 
@@ -43,7 +43,7 @@ moonSvg.addEventListener("click", () => {
   checkers.forEach((checkbox) => checkbox.classList.remove("checkboxActive"));
   menuBG.classList.remove("menuActive");
 
-  menuPlaceholders.forEach((placeholders) =>
-    placeholders.classList.remove("activeParagragh")
+  menuPlaceholders.forEach((placeholder) =>
+    placeholder.classList.toggle("activeParagragh")
   );
 });
