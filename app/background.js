@@ -11,6 +11,7 @@ const menuPlaceholders = document.querySelectorAll(".menuBtn > div > p");
 const ulItems = document.querySelectorAll(".render");
 // const paragraph = document.querySelectorAll(".todo > p");
 // const renderedEl = document.querySelectorAll(".renderedEl");
+let currentTheme = "dark";
 
 sunSvg.addEventListener("click", () => {
   sunSvg.classList.add("hidden");

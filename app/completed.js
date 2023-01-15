@@ -6,6 +6,9 @@ completed.addEventListener("click", () => {
   const text = document.querySelectorAll(".todo > p");
   const renderedElement = document.querySelectorAll(".renderedEl");
 
+  // render any saved up completedTodo if there is
+  renderCompletedTodo();
+
   checkboxes.forEach((checkbox, i) => {
     if (checkbox.checked) {
       completedTodo.push(text[i].textContent);
@@ -13,13 +16,16 @@ completed.addEventListener("click", () => {
       deleteEl();
 
       renderedElement[i].remove();
-      console.log(listItems);
 
-      index = i;
-      refactor();
+      newListItems = listItems.filter(
+        (deletedWord) => deletedWord != listItems[i]
+      );
+
+      listItems = newListItems;
+      localStorage.setItem("completedTodo", JSON.stringify(completedTodo));
     } else {
       listItem.innerHTML = `<div class="flex items-center justify-around bg-veryDarkDesaturatedBlue p-[10px] text-white">You've not completed any todo list item</div>`;
     }
   });
-  console.log(completedTodo);
+  if (completedTodo.length > 0) render(completedTodo);
 });

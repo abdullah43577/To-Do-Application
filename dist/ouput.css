@@ -849,10 +849,6 @@ li p {
 }
 
 @media (min-width: 750px){
-  .lg\:w-\[900px\]{
-    width: 900px;
-  }
-
   .lg\:w-\[700px\]{
     width: 700px;
   }

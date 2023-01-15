@@ -3,11 +3,11 @@
 let listItems = [];
 let newListItems = [];
 let completedTodo = [];
-let index = 0;
 const input = document.querySelector('input[type="text"]');
 const listItem = document.querySelector("ul");
 const form = document.querySelector("form");
 let leadsFromLocalStorage = JSON.parse(localStorage.getItem("listItems"));
+let leadsFromCompletedTodo = JSON.parse(localStorage.getItem("completedTodo"));
 const itemsLeft = document.querySelector(".listElement > p");
 // const completed = document.querySelector(".activeEl + p + p");
 
@@ -64,6 +64,15 @@ if (leadsFromLocalStorage) {
   countItems();
   deleteEl();
 }
+function renderCompletedTodo() {
+  // check if leads in localStorage
+  if (leadsFromCompletedTodo) {
+    completedTodo = leadsFromCompletedTodo;
+    render(completedTodo);
+    countItems();
+    deleteEl();
+  }
+}
 
 // implementation of the cross delete button
 function deleteEl() {
@@ -74,8 +83,11 @@ function deleteEl() {
     delBTN.addEventListener("click", () => {
       renderedElement[i].remove();
 
-      index = i;
-      refactor();
+      newListItems = listItems.filter(
+        (deletedWord) => deletedWord != listItems[i]
+      );
+      listItems = newListItems;
+      localStorage.setItem("listItems", JSON.stringify(listItems));
 
       // Update the items counter
       countItems();
@@ -83,14 +95,14 @@ function deleteEl() {
   });
 }
 
-function refactor() {
-  newListItems = listItems.filter(
-    (deletedWord) => deletedWord != listItems[index]
-  );
-  console.log(newListItems);
-  listItems = newListItems;
-  localStorage.setItem("listItems", JSON.stringify(listItems));
-}
+// function refactor() {
+//   newListItems = listItems.filter(
+//     (deletedWord) => deletedWord != listItems[index]
+//   );
+//   console.log(newListItems);
+//   listItems = newListItems;
+//   localStorage.setItem("listItems", JSON.stringify(listItems));
+// }
 
 // update items counter
 function countItems() {
