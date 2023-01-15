@@ -16,6 +16,15 @@ body {
   height: 100vh;
 }
 
+main,
+header,
+input,
+.input,
+.menuBtn,
+.renderedEl {
+  transition: all 1s ease;
+}
+
 main {
   &.white-bg {
     background: hsl(0, 0%, 98%);

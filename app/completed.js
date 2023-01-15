@@ -5,6 +5,8 @@ completed.addEventListener("click", () => {
   const checkboxes = document.querySelectorAll(".checker");
   const renderedEl = document.querySelectorAll(".renderedEl");
 
+  console.log(checkboxes);
+
   let result = "";
   checkboxes.forEach((checkbox, i) => {
     if (checkbox.checked) {
