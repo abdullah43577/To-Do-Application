@@ -33,7 +33,7 @@ sunSvg.addEventListener("click", () => {
 moonSvg.addEventListener("click", () => {
   sunSvg.classList.remove("hidden");
   moonSvg.classList.add("hidden");
-  header.classList.add("headerActive");
+  header.classList.remove("headerActive");
 
   main.classList.remove("white-bg");
   // // change later
