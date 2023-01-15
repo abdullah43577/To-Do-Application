@@ -92,7 +92,7 @@ input[type=text].inputActive {
 
 @layer components {
   .elementStates > p {
-    @apply w-full pl-[5px] pr-[5px];
+    @apply sm:px-[10px] md:px-[5px];
   }
 }
 @layer components {

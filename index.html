@@ -44,20 +44,21 @@
               <input type="text" class="w-full bg-veryDarkDesaturatedBlue" />
             </div>
 
-            <div class="lists h-auto mt-[20px] rounded">
+            <div class="lists h-auto mt-[20px] rounded sm:relative">
               <!-- dynamically rendered element -->
               <ul></ul>
 
               <div
-                class="menuBtn flex items-center justify-around bg-veryDarkDesaturatedBlue p-[10px]"
+                class="menuBtn flex items-center md:justify-around bg-veryDarkDesaturatedBlue p-[10px] sm:justify-between"
               >
                 <div class="listElement">
                   <p>0 items left</p>
                 </div>
-                <div class="elementStates flex justify-center">
+                <div
+                  class="elementStates flex justify-center bg-veryDarkDesaturatedBlue sm:absolute sm:mt-[150px] sm:py-[12px] sm:px-[10px] sm:w-full sm:ml-[-10px] md:relative md:mt-[0px] md:py-[0px] md:px-[0px] md:w-[auto] md:m-[auto]"
+                >
                   <p class="activeEl active">All</p>
-                  <!-- active -->
-                  <p class="active">Pending</p>
+                  <p class="active">active</p>
                   <p class="active">Completed</p>
                 </div>
                 <div class="delStates">
@@ -71,7 +72,7 @@
     </main>
 
     <footer class="absolute left-5 bottom-5">
-      <div class="attribution">
+      <div class="attribution md:text-[16px] sm:text-[10px]">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a

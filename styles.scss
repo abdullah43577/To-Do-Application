@@ -103,7 +103,7 @@ input[type="text"] {
 
 @layer components {
   .elementStates > p {
-    @apply w-full pl-[5px] pr-[5px];
+    @apply sm:px-[10px] md:px-[5px];
   }
 }
 

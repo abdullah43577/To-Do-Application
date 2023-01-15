@@ -552,10 +552,18 @@ input[type=checkbox].checkboxActive {
   background: hsl(0deg, 0%, 98%);
 }
 
-.elementStates > p{
-  width: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
+@media (min-width: 350px){
+  .elementStates > p{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 450px){
+  .elementStates > p{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 .menuBtn p{
@@ -837,14 +845,86 @@ li p {
 }
 
 @media (min-width: 350px){
+  .sm\:absolute{
+    position: absolute;
+  }
+
+  .sm\:relative{
+    position: relative;
+  }
+
+  .sm\:mt-\[150px\]{
+    margin-top: 150px;
+  }
+
+  .sm\:ml-\[-10px\]{
+    margin-left: -10px;
+  }
+
   .sm\:w-\[350px\]{
     width: 350px;
+  }
+
+  .sm\:w-full{
+    width: 100%;
+  }
+
+  .sm\:justify-between{
+    justify-content: space-between;
+  }
+
+  .sm\:py-\[12px\]{
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .sm\:px-\[10px\]{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sm\:text-\[10px\]{
+    font-size: 10px;
   }
 }
 
 @media (min-width: 450px){
+  .md\:relative{
+    position: relative;
+  }
+
+  .md\:m-\[auto\]{
+    margin: auto;
+  }
+
+  .md\:mt-\[0px\]{
+    margin-top: 0px;
+  }
+
   .md\:w-\[450px\]{
     width: 450px;
+  }
+
+  .md\:w-\[auto\]{
+    width: auto;
+  }
+
+  .md\:justify-around{
+    justify-content: space-around;
+  }
+
+  .md\:py-\[0px\]{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .md\:px-\[0px\]{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .md\:text-\[16px\]{
+    font-size: 16px;
   }
 }
 
