@@ -18,7 +18,7 @@
       <header class="h-[40vh] w-screen"></header>
 
       <div
-        class="todo_Container absolute top-[50%] left-[50%] sm:w-[450px] md:w-[700px] lg:w-[900px] translate-x-[-50%] translate-y-[-40vh]"
+        class="todo_Container absolute top-[50%] left-[50%] sm:w-[350px] md:w-[450px] lg:w-[700px] translate-x-[-50%] translate-y-[-40vh]"
       >
         <div class="hd flex items-center justify-between mb-[20px]">
           <h1
@@ -55,9 +55,9 @@
                   <p>0 items left</p>
                 </div>
                 <div class="elementStates flex justify-center">
-                  <p class="activeEl">All</p>
-                  <p>Active</p>
-                  <p>Completed</p>
+                  <p class="activeEl active">All</p>
+                  <p class="active">Active</p>
+                  <p class="active">Completed</p>
                 </div>
                 <div class="delStates">
                   <p>Clear Completed</p>
@@ -86,5 +86,8 @@
     <script src="/app/script.js"></script>
     <script src="/app/background.js"></script>
     <script src="/app/completed.js"></script>
+    <script src="/app/all.js"></script>
+    <script src="/app/active.js"></script>
+    <script src="/app/clearCompleted.js"></script>
   </body>
 </html>

@@ -3,6 +3,7 @@
 let listItems = [];
 let newListItems = [];
 let completedTodo = [];
+let index = 0;
 const input = document.querySelector('input[type="text"]');
 const listItem = document.querySelector("ul");
 const form = document.querySelector("form");
@@ -37,6 +38,7 @@ const render = (arr) => {
   listItem.innerHTML = listEl;
   listEl = "";
 
+  deleteEl();
   countItems();
 };
 
@@ -72,17 +74,22 @@ function deleteEl() {
     delBTN.addEventListener("click", () => {
       renderedElement[i].remove();
 
-      newListItems = listItems.filter(
-        (deletedWord) => deletedWord != listItems[i]
-      );
-
-      listItems = newListItems;
-      localStorage.setItem("listItems", JSON.stringify(listItems));
+      index = i;
+      refactor();
 
       // Update the items counter
       countItems();
     });
   });
+}
+
+function refactor() {
+  newListItems = listItems.filter(
+    (deletedWord) => deletedWord != listItems[index]
+  );
+  console.log(newListItems);
+  listItems = newListItems;
+  localStorage.setItem("listItems", JSON.stringify(listItems));
 }
 
 // update items counter
@@ -100,17 +107,17 @@ function completedItems() {
   });
 }
 
-// completed.addEventListener("click", () => {
-//   const checkboxes = document.querySelectorAll(".checker");
-//   // console.log(checkboxes);
+const menubtns = document.querySelectorAll(".active");
 
-//   checkboxes.forEach((checkbox, i) => {
-//     if (checkbox.checked) {
-//       console.log(checkbox.checked);
-//       let test = [];
-//       test.filter((item) => listItems[i]);
-//       completedItems = test;
-//       console.log(completedItems);
-//     }
-//   });
-// });
+menubtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    checkActiveEl();
+    btn.classList.add("activeEl");
+  });
+});
+
+function checkActiveEl() {
+  menubtns.forEach((btn) => {
+    if (btn.classList.contains("activeEl")) btn.classList.remove("activeEl");
+  });
+}

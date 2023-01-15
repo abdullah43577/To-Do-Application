@@ -3,21 +3,22 @@ const completed = document.querySelector(".activeEl + p + p");
 
 completed.addEventListener("click", () => {
   const checkboxes = document.querySelectorAll(".checker");
-  const renderedEl = document.querySelectorAll(".renderedEl");
+  const text = document.querySelectorAll(".todo > p");
+  const renderedElement = document.querySelectorAll(".renderedEl");
 
-  console.log(checkboxes);
-
-  let result = "";
   checkboxes.forEach((checkbox, i) => {
     if (checkbox.checked) {
-      console.log(checkbox.checked);
-      console.log(renderedEl[i]);
-      //   console.log(`<li> ${renderedEl[i]} </li>`);
+      completedTodo.push(text[i].textContent);
+      render(completedTodo);
+      deleteEl();
 
-      completedTodo.push(renderedEl[i]);
+      renderedElement[i].remove();
+      console.log(listItems);
 
-      result += `<li> ${completedTodo[i]} </li>`;
-      listItem.innerHTML = result;
+      index = i;
+      refactor();
+    } else {
+      listItem.innerHTML = `<div class="flex items-center justify-around bg-veryDarkDesaturatedBlue p-[10px] text-white">You've not completed any todo list item</div>`;
     }
   });
   console.log(completedTodo);
