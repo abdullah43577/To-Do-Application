@@ -19,7 +19,7 @@
 node_modules
 
 # Remove the css map file of CSS, SCSS / Sass
-./*.css.map
+./*/*.css.map
 
 # Remove the style guide
 style-guide.md

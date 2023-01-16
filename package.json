@@ -66,8 +66,8 @@
     "yaml": "^1.10.2"
   },
   "scripts": {
-    "build": "tailwindcss -i ./styles.css -o ./dist/ouput.css",
-    "watch": "tailwindcss -i ./styles.css -o ./dist/ouput.css --watch"
+    "build": "tailwindcss -i css/styles.css -o ./dist/ouput.css",
+    "watch": "tailwindcss -i css/styles.css -o ./dist/ouput.css --watch"
   },
   "keywords": [],
   "author": "",

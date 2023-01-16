@@ -533,8 +533,8 @@ video {
 
 input[type=checkbox] {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: 18px;
   height: 17px;
   border-radius: 50%;
@@ -775,9 +775,9 @@ main > header.headerActive {
 input[type=text] {
   outline: none;
   -webkit-padding-start: 10px;
-  padding-inline-start: 10px;
+          padding-inline-start: 10px;
   -webkit-padding-end: 10px;
-  padding-inline-end: 10px;
+          padding-inline-end: 10px;
   color: hsl(233deg, 11%, 84%);
   height: 40px;
 }
@@ -841,7 +841,7 @@ li {
 }
 
 li p {
-  transition: all 1s ease-in-out;
+  transition: all 1s ease;
 }
 
 @media (min-width: 350px){
@@ -933,4 +933,5 @@ li p {
     width: 700px;
   }
 }
+
 /*# sourceMappingURL=ouput.css.map */

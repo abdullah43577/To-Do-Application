@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+$transitionStyle: all 1s ease;
+$darkBackgroundColor: hsl(235, 24%, 19%);
+$darkColor: hsl(235, 24%, 19%);
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +26,7 @@ input,
 .input,
 .menuBtn,
 .renderedEl {
-  transition: all 1s ease;
+  transition: $transitionStyle;
 }
 
 main {
@@ -55,7 +59,7 @@ main {
     width: 18px;
     height: 17px;
     border-radius: 50%;
-    background-color: hsl(235, 24%, 19%);
+    background-color: $darkBackgroundColor;
     cursor: pointer;
     border: 1px solid gray;
 
@@ -79,7 +83,7 @@ input[type="text"] {
 
   &.inputActive {
     background-color: hsl(0, 0%, 98%);
-    color: hsl(235, 24%, 19%);
+    color: $darkColor;
   }
 }
 
@@ -121,7 +125,7 @@ input[type="text"] {
       color: hsl(236, 9%, 61%);
 
       &:hover {
-        color: hsl(235, 24%, 19%);
+        color: $darkColor;
       }
     }
   }
@@ -152,7 +156,7 @@ li {
   text-transform: capitalize;
 
   p {
-    transition: all 1s ease-in-out;
+    transition: $transitionStyle;
   }
 }
 
