@@ -23,3 +23,8 @@ node_modules
 
 # Remove the style guide
 style-guide.md
+
+# Remove config files
+tailwind.config.js
+style-guide.md
+scss/_config.scss

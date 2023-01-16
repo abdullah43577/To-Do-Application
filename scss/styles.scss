@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
+@import "config";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-$transitionStyle: all 1s ease;
-$darkBackgroundColor: hsl(235, 24%, 19%);
-$darkColor: hsl(235, 24%, 19%);
 
 * {
   margin: 0;
@@ -31,7 +29,7 @@ input,
 
 main {
   &.white-bg {
-    background: hsl(0, 0%, 98%);
+    background: $white;
   }
 
   > header {
@@ -50,7 +48,7 @@ main {
     @apply bg-veryDarkDesaturatedBlue w-full pl-[10px] pr-[10px] pt-[5px] pb-[5px] flex items-center;
 
     &.renderActive {
-      background: hsl(0, 0%, 98%);
+      background: $white;
     }
   }
 
@@ -69,7 +67,7 @@ main {
     }
 
     &.checkboxActive {
-      background: hsl(0, 0%, 98%);
+      background: $white;
     }
   }
 }
@@ -82,7 +80,7 @@ input[type="text"] {
   height: 40px;
 
   &.inputActive {
-    background-color: hsl(0, 0%, 98%);
+    background-color: $white;
     color: $darkColor;
   }
 }
@@ -98,11 +96,11 @@ input[type="text"] {
 }
 
 .renderedEl {
-  border-bottom: 1px solid hsl(0, 0%, 98%);
+  border-bottom: 1px solid $white;
 }
 
 .render.whiteBox {
-  background: hsl(0, 0%, 98%);
+  background: $white;
 }
 
 @layer components {
@@ -119,7 +117,7 @@ input[type="text"] {
 
 .menuBtn {
   &.menuActive {
-    background: hsl(0, 0%, 98%);
+    background: $white;
 
     > div > p.activeParagraph {
       color: hsl(236, 9%, 61%);
