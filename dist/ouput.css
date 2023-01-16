@@ -873,6 +873,11 @@ li p {
     justify-content: space-between;
   }
 
+  .sm\:bg-veryDarkDesaturatedBlue{
+    --tw-bg-opacity: 1;
+    background-color: hsl(235 24% 19% / var(--tw-bg-opacity));
+  }
+
   .sm\:py-\[12px\]{
     padding-top: 12px;
     padding-bottom: 12px;
@@ -911,6 +916,10 @@ li p {
 
   .md\:justify-around{
     justify-content: space-around;
+  }
+
+  .md\:bg-transparent{
+    background-color: transparent;
   }
 
   .md\:py-\[0px\]{
