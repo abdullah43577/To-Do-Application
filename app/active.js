@@ -1,2 +1,0 @@
-"use strict";
-render(listItems);

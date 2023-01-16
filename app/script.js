@@ -15,6 +15,50 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
+// counter to keep track of index (subject to change, would take a closer look at this code)
+let index = 0;
+
+const renderNewItems = function (key, array) {
+  newListItems = listItems.filter(
+    (deletedWord) => deletedWord != listItems[index]
+  );
+  console.log(newListItems);
+  listItems = newListItems;
+  localStorage.setItem(key, JSON.stringify(array));
+};
+
+// implementation of the cross delete button
+const deleteEl = function () {
+  const del = document.querySelectorAll("figure");
+  const renderedElement = document.querySelectorAll(".renderedEl");
+
+  del.forEach((delBTN, i) => {
+    delBTN.addEventListener("click", () => {
+      renderedElement[i].remove();
+      index++;
+      renderNewItems("listItems", listItems);
+
+      // Update the items counter
+      countItems();
+    });
+  });
+};
+
+// update items counter
+const countItems = function () {
+  itemsLeft.textContent = `${listItems.length} items left`;
+};
+
+const completedItems = function () {
+  completed.addEventListener("click", () => {
+    const checkboxes = document.querySelectorAll(".checker");
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) console.log(checked);
+    });
+  });
+};
+
 const render = (arr) => {
   let listEl = "";
 
@@ -64,7 +108,8 @@ if (leadsFromLocalStorage) {
   countItems();
   deleteEl();
 }
-function renderCompletedTodo() {
+
+const renderCompletedTodo = function () {
   // check if leads in localStorage
   if (leadsFromCompletedTodo) {
     completedTodo = leadsFromCompletedTodo;
@@ -72,52 +117,7 @@ function renderCompletedTodo() {
     countItems();
     deleteEl();
   }
-}
-
-// implementation of the cross delete button
-function deleteEl() {
-  const del = document.querySelectorAll("figure");
-  const renderedElement = document.querySelectorAll(".renderedEl");
-
-  del.forEach((delBTN, i) => {
-    delBTN.addEventListener("click", () => {
-      renderedElement[i].remove();
-
-      newListItems = listItems.filter(
-        (deletedWord) => deletedWord != listItems[i]
-      );
-      listItems = newListItems;
-      localStorage.setItem("listItems", JSON.stringify(listItems));
-
-      // Update the items counter
-      countItems();
-    });
-  });
-}
-
-// function refactor() {
-//   newListItems = listItems.filter(
-//     (deletedWord) => deletedWord != listItems[index]
-//   );
-//   console.log(newListItems);
-//   listItems = newListItems;
-//   localStorage.setItem("listItems", JSON.stringify(listItems));
-// }
-
-// update items counter
-function countItems() {
-  itemsLeft.textContent = `${listItems.length} items left`;
-}
-
-function completedItems() {
-  completed.addEventListener("click", () => {
-    const checkboxes = document.querySelectorAll(".checker");
-
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked) console.log(checked);
-    });
-  });
-}
+};
 
 const menubtns = document.querySelectorAll(".active");
 
@@ -128,8 +128,66 @@ menubtns.forEach((btn) => {
   });
 });
 
-function checkActiveEl() {
+const checkActiveEl = function () {
   menubtns.forEach((btn) => {
     if (btn.classList.contains("activeEl")) btn.classList.remove("activeEl");
   });
-}
+};
+
+// Menu Btns
+const firstbtn = document.querySelector(".elementStates :first-child");
+const completed = document.querySelector(".activeEl + p + p");
+const delState = document.querySelector(".delStates > p");
+
+// All Menu
+firstbtn.addEventListener("click", () => render(listItems));
+
+// Completed Menu
+completed.addEventListener("click", () => {
+  const checkboxes = document.querySelectorAll(".checker");
+  const text = document.querySelectorAll(".todo > p");
+  const renderedElement = document.querySelectorAll(".renderedEl");
+
+  // render any saved up completedTodo if there is
+  renderCompletedTodo();
+
+  checkboxes.forEach((checkbox, i) => {
+    if (checkbox.checked) {
+      completedTodo.push(text[i].textContent);
+      render(completedTodo);
+      deleteEl();
+
+      renderedElement[i].remove();
+      index++;
+      renderNewItems("completedTodo", completedTodo);
+    } else {
+      listItem.innerHTML = `<div class="flex items-center justify-around bg-veryDarkDesaturatedBlue p-[10px] text-white">You've not completed any todo list item</div>`;
+    }
+  });
+  if (completedTodo.length > 0) render(completedTodo);
+});
+
+// Clear Completed Menu
+delState.addEventListener("click", () => {
+  const checkboxes = document.querySelectorAll(".checker");
+  const renderedElement = document.querySelectorAll(".renderedEl");
+  const lastChild = document.querySelector(".elementStates > :last-child");
+
+  checkboxes.forEach((box, i) => {
+    if (box.checked && lastChild.classList.contains("activeEl")) {
+      renderedElement[i].remove();
+
+      index++;
+      // completely removes the completed Item from the DOM and localStorage
+      renderNewItems("listItems", listItems);
+
+      // whether or not a user checks any of the checkboxes in the completed tab, on pressing the clearCompleted button, it deletes all elements on the page.
+      if (completedTodo.length > 0) completedTodo = [];
+      localStorage.setItem("completedTodo", JSON.stringify(completedTodo));
+      renderCompletedTodo();
+      location.reload();
+
+      countItems();
+    }
+  });
+});
