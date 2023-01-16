@@ -28,3 +28,6 @@ style-guide.md
 tailwind.config.js
 style-guide.md
 scss/_config.scss
+
+# Remove unecessary json files
+package-lock.json
