@@ -110,9 +110,10 @@ p.activeEl {
   color: blue;
 }
 
-input.checker:checked + p {
+input[type=checkbox]:checked + p.checked {
   text-decoration: line-through;
   color: gray;
+  font-size: 14px;
 }
 
 figure {

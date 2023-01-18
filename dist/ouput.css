@@ -548,10 +548,6 @@ input[type=checkbox]:checked {
   background-color: blue;
 }
 
-input[type=checkbox].checkboxActive {
-  background: hsl(0deg, 0%, 98%);
-}
-
 @media (min-width: 350px){
   .elementStates > p{
     padding-left: 10px;
@@ -671,10 +667,6 @@ input[type=checkbox].checkboxActive {
 
 .justify-between{
   justify-content: space-between;
-}
-
-.justify-around{
-  justify-content: space-around;
 }
 
 .rounded{
@@ -819,9 +811,10 @@ p.activeEl {
   color: blue;
 }
 
-input.checker:checked + p {
+input[type=checkbox]:checked + p.checked {
   text-decoration: line-through;
   color: gray;
+  font-size: 14px;
 }
 
 figure {
