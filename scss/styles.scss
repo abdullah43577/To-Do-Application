@@ -72,6 +72,10 @@ main {
   }
 }
 
+.elementStates.white-bg-el {
+  background-color: $white;
+}
+
 input[type="text"] {
   outline: none;
   padding-inline-start: 10px;
@@ -164,4 +168,45 @@ li {
   .attribution > a {
     @apply text-[red];
   }
+}
+
+// todo rendered section for styles on re-rendering items in the DOM
+.white {
+  background-color: $white;
+}
+
+.dark {
+  background-color: $darkBackgroundColor;
+}
+
+input[type="checkbox"].white {
+  background-color: $white;
+}
+
+input[type="checkbox"].white:checked {
+  background-color: $darkBackgroundColor;
+}
+
+input[type="checkbox"].dark {
+  background-color: $darkBackgroundColor;
+}
+
+input[type="checkbox"].dark:checked {
+  background-color: $white;
+}
+
+.todo > p.white {
+  color: $darkBackgroundColor;
+}
+
+.todo > p.dark {
+  color: $white;
+}
+
+.empty.white {
+  color: $darkBackgroundColor;
+}
+
+.empty.dark {
+  color: $white;
 }

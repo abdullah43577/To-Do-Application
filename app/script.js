@@ -5,6 +5,8 @@ const navBtnFilter = document.querySelectorAll(".activeMenu");
 const ul = document.querySelector("ul");
 const counter = document.querySelector(".listElement > p");
 const clearCompleted = document.querySelector(".delStates > p");
+// variable for keeping track of the rendered background state
+let isDarkOrWhite = "dark";
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -12,11 +14,6 @@ form.addEventListener("submit", (e) => {
 
 // get items from localStorage if there is
 let todoItems = JSON.parse(localStorage.getItem("todo-list"));
-
-clearCompleted.addEventListener("click", () => {
-  console.log("cleared");
-  // loop through the todoItems storage looking for items with the completed status
-});
 
 const todoCounter = function () {
   counter.textContent = `${todoItems.length} items left`;
@@ -26,7 +23,7 @@ navBtnFilter.forEach((btn) => {
   btn.addEventListener("click", () => {
     console.log(btn);
     // Toggling the active filter class
-    (function () {
+    (() => {
       navBtnFilter.forEach((btn) => {
         if (btn.classList.contains("activeEl"))
           btn.classList.remove("activeEl");
@@ -46,10 +43,10 @@ const displayTodo = function (filterItems) {
       let isCompleted = item.status === "completed" ? "checked" : "";
       if (filterItems === item.status || filterItems === "all") {
         li += `<li>
-                    <div class="renderedEl render pt-[12px] pb-[12px] flex items-center justify-between cursor-pointer">
+                    <div class="renderedEl render pt-[12px] pb-[12px] flex items-center justify-between cursor-pointer ${isDarkOrWhite}">
                       <label for="${id}" class="todo flex items-center w-full cursor-pointer">
-                        <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}/>
-                              <p class="text-white pl-[10px] ${isCompleted}">${item.name}</p>
+                        <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${isCompleted} class="${isDarkOrWhite}"/>
+                              <p class="text-white pl-[10px] ${isCompleted} ${isDarkOrWhite}">${item.name}</p>
                       </label>
                       <figure onclick="deleteTodo(${id})" class="cursor-pointer">
                           <img src="/images/icon-cross.svg" alt="icon cross" />
@@ -62,7 +59,7 @@ const displayTodo = function (filterItems) {
   }
   ul.innerHTML =
     li ||
-    `<div class="render pt-[12px] pb-[12px] flex items-center text-white"> You don't have any task here</div>`;
+    `<div class="render pt-[12px] pb-[12px] flex items-center text-white ${isDarkOrWhite}"><p class="empty ${isDarkOrWhite}"> You don't have any task here</p></div>`;
   todoCounter();
 };
 // on browser load executes this
@@ -112,3 +109,11 @@ const deleteTodo = function (deleteId) {
   location.reload();
   displayTodo("all");
 };
+
+clearCompleted.addEventListener("click", () => {
+  todoItems.splice(0, todoItems.length);
+  // updating localStorage
+  localStorage.setItem("todo-list", JSON.stringify(todoItems));
+  location.reload();
+  displayTodo("all");
+});

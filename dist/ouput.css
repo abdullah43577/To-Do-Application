@@ -548,6 +548,10 @@ input[type=checkbox]:checked {
   background-color: blue;
 }
 
+input[type=checkbox].checkboxActive {
+  background: hsl(0deg, 0%, 98%);
+}
+
 @media (min-width: 350px){
   .elementStates > p{
     padding-left: 10px;
@@ -637,10 +641,6 @@ input[type=checkbox]:checked {
 
 .w-full{
   width: 100%;
-}
-
-.w-auto{
-  width: auto;
 }
 
 .translate-x-\[-50\%\]{
@@ -764,6 +764,10 @@ main > header.headerActive {
   background-image: url("/images/bg-desktop-light.jpg");
 }
 
+.elementStates.white-bg-el {
+  background-color: hsl(0deg, 0%, 98%);
+}
+
 input[type=text] {
   outline: none;
   -webkit-padding-start: 10px;
@@ -835,6 +839,46 @@ li {
 
 li p {
   transition: all 1s ease;
+}
+
+.white {
+  background-color: hsl(0deg, 0%, 98%);
+}
+
+.dark {
+  background-color: hsl(235deg, 24%, 19%);
+}
+
+input[type=checkbox].white {
+  background-color: hsl(0deg, 0%, 98%);
+}
+
+input[type=checkbox].white:checked {
+  background-color: hsl(235deg, 24%, 19%);
+}
+
+input[type=checkbox].dark {
+  background-color: hsl(235deg, 24%, 19%);
+}
+
+input[type=checkbox].dark:checked {
+  background-color: hsl(0deg, 0%, 98%);
+}
+
+.todo > p.white {
+  color: hsl(235deg, 24%, 19%);
+}
+
+.todo > p.dark {
+  color: hsl(0deg, 0%, 98%);
+}
+
+.empty.white {
+  color: hsl(235deg, 24%, 19%);
+}
+
+.empty.dark {
+  color: hsl(0deg, 0%, 98%);
 }
 
 @media (min-width: 350px){
