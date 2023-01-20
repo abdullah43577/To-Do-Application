@@ -31,7 +31,10 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./design/Screenshot_6.png)
+![](./design/Screenshot_7.png)
+![](./design/Screenshot_8.png)
+![](./design/Screenshot_9.png)
 
 ### Links
 
