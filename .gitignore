@@ -26,7 +26,6 @@ dist/output.css.map
 style-guide.md
 
 # Remove config files
-tailwind.config.js
 style-guide.md
 scss/_config.scss
 

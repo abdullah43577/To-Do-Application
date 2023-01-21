@@ -60,7 +60,7 @@ const displayTodo = function (filterItems) {
   ul.innerHTML =
     li ||
     `<div class="render pt-[12px] pb-[12px] flex items-center text-white ${isDarkOrWhite}"><p class="empty ${isDarkOrWhite}"> You don't have any task here</p></div>`;
-  todoCounter();
+  // todoCounter();
 };
 // on browser load executes this
 displayTodo("all");
