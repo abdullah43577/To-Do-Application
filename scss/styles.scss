@@ -60,10 +60,32 @@ main {
     background-color: $darkBackgroundColor;
     cursor: pointer;
     border: 1px solid gray;
+    // started from here
+    position: relative;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      height: 50%;
+      pointer-events: none;
+      background-image: url("/design/pngwing.com.png");
+      background-size: contain;
+      background-repeat: none;
+      display: none;
+    }
 
     &:checked {
-      display: block;
-      background-color: blue;
+      // display: block;
+      background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+      &::before {
+        display: block;
+      }
     }
 
     &.checkboxActive {
@@ -123,7 +145,7 @@ input[type="text"] {
   &.menuActive {
     background: $white;
 
-    > div > p.activeParagraph {
+    .activeParagraph {
       color: hsl(236, 9%, 61%);
 
       &:hover {

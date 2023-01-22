@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./design/Screenshot_6.png)
-![](./design/Screenshot_7.png)
+![](./design/Screenshot_10.png)
+![](./design/Screenshot_11.png)
 ![](./design/Screenshot_8.png)
 ![](./design/Screenshot_9.png)
 

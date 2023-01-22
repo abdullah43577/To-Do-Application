@@ -50,10 +50,28 @@ main > header.headerActive {
     background-color: hsl(235deg, 24%, 19%);
     cursor: pointer;
     border: 1px solid gray;
+    position: relative;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  input[type=checkbox]::before {
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    pointer-events: none;
+    background-image: url("/design/pngwing.com.png");
+    background-size: contain;
+    background-repeat: none;
+    display: none;
   }
   input[type=checkbox]:checked {
+    background: linear-gradient(hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
+  }
+  input[type=checkbox]:checked::before {
     display: block;
-    background-color: blue;
   }
   input[type=checkbox].checkboxActive {
     background: hsl(0deg, 0%, 98%);
@@ -103,10 +121,10 @@ input[type=text].inputActive {
 .menuBtn.menuActive {
   background: hsl(0deg, 0%, 98%);
 }
-.menuBtn.menuActive > div > p.activeParagraph {
+.menuBtn.menuActive .activeParagraph {
   color: hsl(236deg, 9%, 61%);
 }
-.menuBtn.menuActive > div > p.activeParagraph:hover {
+.menuBtn.menuActive .activeParagraph:hover {
   color: hsl(235deg, 24%, 19%);
 }
 
