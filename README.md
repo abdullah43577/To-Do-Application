@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution URL here](https://your-solution-url.com)
+- Solution URL: [Solution URL here](https://www.frontendmentor.io/solutions/todo-app--7xpuek8KH)
 - Live Site URL: [Live site URL here](https://todoapplicationz.netlify.app/)
 
 ## My process
@@ -48,7 +48,6 @@ Users should be able to:
 - Semantic HTML5 markup
 - SCSS / Sass
 - Flexbox
-- CSS Grid
 - Desktop-first workflow
 - [Tailwind Utility Components](https://tailwindcss.com/) - For styles
 
