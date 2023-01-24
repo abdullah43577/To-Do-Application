@@ -15,9 +15,9 @@ form.addEventListener("submit", (e) => {
 // get items from localStorage if there is
 let todoItems = JSON.parse(localStorage.getItem("todo-list"));
 
-const todoCounter = function () {
-  counter.textContent = `${todoItems.length} items left`;
-};
+// const todoCounter = function () {
+//   counter.textContent = `${todoItems.length} items left`;
+// };
 
 navBtnFilter.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -60,7 +60,7 @@ const displayTodo = function (filterItems) {
   ul.innerHTML =
     li ||
     `<div class="render pt-[12px] pb-[12px] flex items-center text-white ${isDarkOrWhite}"><p class="empty ${isDarkOrWhite}"> You don't have any task here</p></div>`;
-  todoCounter();
+  // todoCounter();
 };
 // on browser load executes this
 displayTodo("all");
@@ -95,7 +95,7 @@ input.addEventListener("keyup", (e) => {
     // storing items into localStorage
     localStorage.setItem("todo-list", JSON.stringify(todoItems));
     displayTodo("all");
-    todoCounter();
+    // todoCounter();
   }
 });
 
