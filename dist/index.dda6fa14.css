@@ -1,4 +1,3 @@
-@import "https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap";
 *, :before, :after {
   box-sizing: border-box;
   border: 0 solid #e5e7eb;
@@ -556,6 +555,10 @@ html, body {
 
 .todo-content > input:checked:before {
   display: block;
+}
+
+.todo-content > p {
+  text-transform: capitalize;
 }
 
 .hover\:text-veryDarkBlue:hover {
