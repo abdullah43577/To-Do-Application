@@ -1,3 +1,4 @@
+@import "https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap";
 *, :before, :after {
   box-sizing: border-box;
   border: 0 solid #e5e7eb;
@@ -273,6 +274,10 @@ img, video {
 
 .top-8 {
   top: 2rem;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .mx-8 {
@@ -561,6 +566,10 @@ html, body {
   text-transform: capitalize;
 }
 
+.checked {
+  text-decoration: line-through;
+}
+
 .hover\:text-veryDarkBlue:hover {
   --tw-text-opacity: 1;
   color: hsl(235 21% 11% / var(--tw-text-opacity));
@@ -587,6 +596,11 @@ html, body {
     background-color: hsl(235 24% 19% / var(--tw-bg-opacity));
   }
 
+  .dark\:bg-veryDarkGrayishBlue {
+    --tw-bg-opacity: 1;
+    background-color: hsl(233 14% 35% / var(--tw-bg-opacity));
+  }
+
   .dark\:bg-\[url\(\'\.\.\/images\/bg-mobile-dark\.jpg\'\)\] {
     background-image: url("bg-mobile-dark.0155cb8f.jpg");
   }
@@ -610,10 +624,6 @@ html, body {
 @media (min-width: 768px) {
   .md\:block {
     display: block;
-  }
-
-  .md\:hidden {
-    display: none;
   }
 
   .md\:justify-between {
