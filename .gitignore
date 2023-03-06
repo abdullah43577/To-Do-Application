@@ -17,17 +17,6 @@
 
 # Avoid project littered with annoying node_modules
 node_modules
-
-# Remove the css map file of CSS, SCSS / Sass
-css/styles.css.map
-dist/output.css.map
-
-# Remove the style guide
 style-guide.md
-
-# Remove config files
-style-guide.md
-scss/_config.scss
-
-# Remove unecessary json files
 package-lock.json
+.parcel-cache
