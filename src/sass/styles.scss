@@ -50,7 +50,7 @@ body {
       width: 50%;
       height: 50%;
       pointer-events: none;
-      // background-image: url("/design/pngwing.com.png");
+      background-image: url("../images/icon-check.svg");
       background-size: contain;
       background-repeat: none;
       display: none;
@@ -73,4 +73,22 @@ body {
 
 .checked {
   text-decoration: line-through;
+}
+
+.editdel-container {
+  animation: width 0.2s ease;
+}
+
+@keyframes width {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+// you can add border to the parent container to visualize this perfectly
+.todo--container.dragging {
+  opacity: 0;
 }
