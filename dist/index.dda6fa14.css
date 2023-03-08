@@ -671,6 +671,10 @@ html, body {
     display: block;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:justify-between {
     justify-content: space-between;
   }

@@ -4,18 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <link rel="stylesheet" href="sass/styles.scss" />
-    <script
-      defer
-      src="https://kit.fontawesome.com/37007fa821.js"
-      crossorigin="anonymous"
-    ></script>
+    <script defer src="https://kit.fontawesome.com/37007fa821.js" crossorigin="anonymous"></script>
     <script src="./app/script.js" type="module"></script>
     <title>Frontend Mentor | Todo App</title>
   </head>
@@ -24,76 +15,40 @@
       class="lg:bg[url('../images/bg-desktop-light.jpg')] h-[40vh] bg-[url('../images/bg-mobile-light.jpg')] bg-cover bg-center bg-no-repeat dark:bg-[url('../images/bg-mobile-dark.jpg')] dark:lg:bg-[url('../images/bg-desktop-dark.jpg')]"
     ></header>
 
-    <main
-      class="mx-8 flex max-w-[976px] translate-y-[-200px] flex-col gap-[1.5rem] lg:mx-auto"
-    >
+    <main class="mx-8 flex max-w-[976px] translate-y-[-200px] flex-col gap-[1.5rem] lg:mx-auto">
       <div class="heading flex items-center justify-between">
-        <h2 class="text-2xl font-bold tracking-widest text-veryLightGray">
-          TODO
-        </h2>
-        <img
-          src="./images/icon-moon.svg"
-          alt="icon-moon"
-          class="bgToggle cursor-pointer"
-        />
+        <h2 class="text-2xl font-bold tracking-widest text-veryLightGray">TODO</h2>
+        <img src="./images/icon-moon.svg" alt="icon-moon" class="bgToggle cursor-pointer" />
       </div>
 
       <form action="" class="inputTodo relative flex w-full items-center">
-        <input
-          type="checkbox"
-          disabled
-          class="border-gray absolute left-3 h-[17px] w-[18px] appearance-none rounded-[50%] border dark:border-veryDarkGrayishBlue"
-        />
-        <input
-          type="text"
-          class="todoInput h-12 w-full rounded-md bg-veryLightGray px-10 text-veryDarkGrayishBlue outline-none dark:bg-veryDarkDesaturatedBlue dark:text-lightGrayishBlue"
-          placeholder="Create a new todo..."
-        />
+        <input type="checkbox" disabled class="border-gray absolute left-3 h-[17px] w-[18px] appearance-none rounded-[50%] border dark:border-veryDarkGrayishBlue" />
+        <input type="text" class="todoInput h-12 w-full rounded-md bg-veryLightGray px-10 text-veryDarkGrayishBlue outline-none dark:bg-veryDarkDesaturatedBlue dark:text-lightGrayishBlue" placeholder="Create a new todo..." />
       </form>
 
       <div class="todo--section w-full rounded-md">
         <!-- todo: main todo elements rendered dynamically -->
+        <!-- <div class="navmenu-mobile flex items-center justify-between bg-white px-5 py-4 dark:bg-veryDarkDesaturatedBlue md:hidden">
+          <p class="cursor-pointer text-sm text-veryDarkGrayishBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover">5 Items left</p>
+          <p class="cursor-pointer text-sm text-veryDarkGrayishBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover">Clear Completed</p>
+        </div> -->
       </div>
 
       <!-- navigation section -->
-      <div
-        class="navigation-container flex w-full items-center justify-center rounded bg-white px-4 py-3 dark:border-veryLightGrayishBlue dark:bg-veryDarkDesaturatedBlue md:justify-between"
-      >
-        <p
-          class="hidden cursor-pointer text-sm text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:block"
-        >
-          5 items left
-        </p>
-        <div
-          class="navigation flex items-center gap-[1rem] md:gap-[0.5rem] lg:gap-[3rem]"
-        >
-          <p
-            class="nav all nav-active cursor-pointer text-sm font-bold text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:font-light"
-          >
-            All
-          </p>
-          <p
-            class="nav active cursor-pointer text-sm font-bold text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:font-light"
-          >
-            Active
-          </p>
-          <p
-            class="nav completed cursor-pointer text-sm font-bold text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:font-light"
-          >
-            Completed
-          </p>
+      <div class="navigation-container flex w-full items-center justify-center rounded bg-white px-4 py-3 dark:border-veryLightGrayishBlue dark:bg-veryDarkDesaturatedBlue md:justify-between">
+        <p class="itemsCounter hidden cursor-pointer text-sm text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:block">5 items left</p>
+
+        <div class="navigation flex items-center gap-[1rem] md:gap-[0.5rem] lg:gap-[3rem]">
+          <p class="nav all nav-active cursor-pointer text-sm font-bold text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:font-light">All</p>
+          <p class="nav active cursor-pointer text-sm font-bold text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:font-light">Active</p>
+          <p class="nav completed cursor-pointer text-sm font-bold text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:font-light">Completed</p>
         </div>
-        <p
-          class="hidden cursor-pointer text-sm text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:block"
-        >
-          Clear Completed
-        </p>
+
+        <p class="clearCompleted hidden cursor-pointer text-sm text-veryDarkGrayishBlue hover:text-veryDarkBlue dark:text-darkGrayishBlue dark:hover:text-lightGrayishBlueHover md:block">Clear Completed</p>
       </div>
 
       <div class="w-full">
-        <p class="text-center text-sm text-veryDarkGrayishBlue opacity-50">
-          Drag and rop to reorder list
-        </p>
+        <p class="text-center text-sm text-veryDarkGrayishBlue opacity-50">Drag and rop to reorder list</p>
       </div>
     </main>
     <footer></footer>

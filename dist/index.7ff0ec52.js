@@ -562,12 +562,9 @@ function hmrAccept(bundle, id) {
 // Todo3: users must be able to edit todo list items ✅
 // Todo4: users must be able to delete todo list items ✅
 // Todo5: users must be able to toggle between the (All, Active and Complete Tabs) ✅
-// Todo6: users must be able to reorder list items suing drag 'n' drop
+// Todo6: users must be able to reorder list items using drag 'n' drop ✅
 // Todo7: users must be able to toggle background colors ✅
 // Todo8: Todo list items must persist in localStorage ✅
-// Todo9: implement the use of dates/time
-// Todo9: users must be able to sort
-// Todo10: implement a guide showing how to use the todo list app
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _iconSunSvg = require("../images/icon-sun.svg");
 var _iconSunSvgDefault = parcelHelpers.interopDefault(_iconSunSvg);
@@ -576,6 +573,7 @@ var _iconMoonSvgDefault = parcelHelpers.interopDefault(_iconMoonSvg);
 class Todo {
     // representing the All array in this case.
     #todoLists = JSON.parse(localStorage.getItem("Todos")) || [];
+    // unique id for each rendered todo
     #index = parseInt(localStorage.getItem("TodosIndex")) || 0;
     #currentState;
     constructor(){
@@ -588,9 +586,12 @@ class Todo {
         this.navBtns = document.querySelectorAll(".nav");
         this.bgToggle = document.querySelector(".bgToggle");
         this.body = document.querySelector("body");
+        this.itemsCounter = document.querySelector(".itemsCounter");
+        this.clearCompleted = document.querySelector(".clearCompleted");
         this.form.addEventListener("submit", this._addTodoItem.bind(this));
         this.todoContainer.addEventListener("click", this._toggleMenuBtns.bind(this));
         this.todoContainer.addEventListener("click", this._markCompleted.bind(this));
+        this.todoContainer.addEventListener("click", this._markCompletedCheck.bind(this));
         this.todoContainer.addEventListener("click", this._deleteTodo.bind(this));
         this.todoContainer.addEventListener("dragstart", this._dragndrop.bind(this));
         this.todoContainer.addEventListener("dragend", this._dragndrop2.bind(this));
@@ -600,17 +601,26 @@ class Todo {
         this.completedBtn.addEventListener("click", this._showCompletedTodoItems.bind(this));
         this.navBtns.forEach((nav)=>nav.addEventListener("click", this._toggleActiveNav.bind(this)));
         this.bgToggle.addEventListener("click", this._toggleBackgroundColor.bind(this));
+        this.clearCompleted.addEventListener("click", this._clearCompletedTodo.bind(this));
         this._renderTodoItem("all");
+        this._countTodo();
+    }
+    _clearCompletedTodo() {
+        this.#todoLists = this.#todoLists.filter((allTodo)=>!allTodo.isCompleted);
+        localStorage.setItem("Todos", JSON.stringify(this.#todoLists));
+        this._renderTodoItem("all");
+        this._countTodo();
+    }
+    _countTodo() {
+        this.itemsCounter.textContent = this.#todoLists.length ? `${this.#todoLists.length} items remaining` : "You haven't added any todo";
     }
     _dragndrop3(e) {
+        e.preventDefault();
         const draggingItem = this.todoContainer.querySelector(".dragging");
         const siblings = [
             ...this.todoContainer.querySelectorAll(".todo--container:not(.dragging)")
         ];
-        let nextSibling = siblings.find((sibling)=>{
-            return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
-        });
-        // console.log(nextSibling);
+        let nextSibling = siblings.find((sibling)=>e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2);
         this.todoContainer.insertBefore(draggingItem, nextSibling);
     }
     _dragndrop2(e) {
@@ -626,9 +636,7 @@ class Todo {
     _toggleBackgroundColor() {
         this.body.classList.toggle("dark");
         if (this.body.classList.contains("dark")) {
-            console.log(this.bgToggle.src);
             this.bgToggle.src = (0, _iconSunSvgDefault.default);
-            console.log(this.bgToggle.src);
             this.bgToggle.alt = "icon sun";
         } else {
             this.bgToggle.src = (0, _iconMoonSvgDefault.default);
@@ -660,12 +668,30 @@ class Todo {
         this.#todoLists.splice(todoIndex, 1);
         localStorage.setItem("Todos", JSON.stringify(this.#todoLists));
         this._renderTodoItem("all");
+        this._countTodo();
     }
-    _markCompleted(e) {
+    _markCompletedCheck(e) {
         let input = e.target.closest('input[type="checkbox"]');
         if (!input) return;
-        // let container = input.parentElement.parentElement;
         input.nextElementSibling.classList.toggle("checked");
+        let todoIndex = this.#todoLists.findIndex((todo)=>todo.id === parseInt(input.id));
+        if (input.checked) {
+            this.#todoLists[todoIndex].isCompleted = true;
+            this.#todoLists[todoIndex].isActive = false;
+        } else {
+            this.#todoLists[todoIndex].isCompleted = false;
+            this.#todoLists[todoIndex].isActive = true;
+        }
+        localStorage.setItem("Todos", JSON.stringify(this.#todoLists));
+    }
+    _markCompleted(e) {
+        let container = e.target.closest(".todo--container");
+        if (!container) return;
+        let input = container.firstElementChild.firstElementChild;
+        if (e.target.classList.contains("fa-ellipsis")) return;
+        if (e.target.classList.contains("check")) return;
+        input.checked ? input.checked = false : input.checked = true;
+        container.firstElementChild.lastElementChild.classList.toggle("checked");
         let todoIndex = this.#todoLists.findIndex((todo)=>todo.id === parseInt(input.id));
         if (input.checked) {
             this.#todoLists[todoIndex].isCompleted = true;
@@ -721,7 +747,7 @@ class Todo {
             html += `
         <div class="todo--container relative flex cursor-pointer items-center justify-between border-b border-veryDarkGrayishBlue bg-veryLightGray px-5 py-4 dark:border-veryLightGrayishBlue dark:bg-veryDarkDesaturatedBlue" draggable="true">
           <div class="todo-content flex items-center">
-            <input type="checkbox" class="mr-3 cursor-pointer" id="${todo.id}"/>
+            <input type="checkbox" class="mr-3 check cursor-pointer" id="${todo.id}"/>
             <p class="text-sm text-veryDarkGrayishBlue dark:text-lightGrayishBlue">${todo.todo}</p>
           </div>
 
@@ -754,15 +780,13 @@ class Todo {
     }
     _addTodoItem(e) {
         e.preventDefault();
-        let storage;
-        this.#currentState = this.#todoLists.some((todoItem)=>todoItem.isEditing === true);
-        // if there's an input
+        // checks if all the isEditing property is false (returns true and false otherwise)
+        this.#currentState = this.#todoLists.every((todoItem)=>!todoItem.isEditing);
         if (this.todoInput.value) {
-            // if there's there is no isEditing value of any property set to true
-            if (!this.#currentState) {
+            if (this.#currentState) {
                 ++this.#index;
                 localStorage.setItem("TodosIndex", this.#index);
-                storage = {
+                let storage = {
                     id: this.#index,
                     todo: this.todoInput.value.trim(),
                     isActive: true,
@@ -779,6 +803,7 @@ class Todo {
         localStorage.setItem("Todos", JSON.stringify(this.#todoLists));
         this.todoInput.value = "";
         this._renderTodoItem("all");
+        this._countTodo();
     }
 }
 const todo = new Todo();
