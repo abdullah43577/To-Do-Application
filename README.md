@@ -31,15 +31,15 @@ Users should be able to:
 
 ### Screenshot
 
-![](./design/Screenshot_10.png)
-![](./design/Screenshot_11.png)
-![](./design/Screenshot_8.png)
-![](./design/Screenshot_9.png)
+![](./src/screenshots/Screenshot_10.png)
+![](./src/screenshots/Screenshot_11.png)
+![](./src/screenshots/Screenshot_8.png)
+![](./src/screenshots/Screenshot_9.png)
 
 ### Links
 
-- Solution URL: [Solution URL here](https://www.frontendmentor.io/solutions/todo-app--7xpuek8KH)
-- Live Site URL: [Live site URL here](https://todoapplicationz.netlify.app/)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/todo-app--7xpuek8KH)
+- Live Site URL: [Live site URL](https://todoapplicationz.netlify.app/)
 
 ## My process
 
@@ -48,8 +48,10 @@ Users should be able to:
 - Semantic HTML5 markup
 - SCSS / Sass
 - Flexbox
-- Desktop-first workflow
+- mobile-first workflow
+- Javascript
 - [Tailwind Utility Components](https://tailwindcss.com/) - For styles
+- [Parcel](https://parceljs.org/) Code Bundler
 
 ### Useful resources
 
