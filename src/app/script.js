@@ -142,10 +142,9 @@ class Todo {
     let container = e.target.closest('.todo--container');
     if (!container) return;
 
-    let input = container.firstElementChild.firstElementChild;
+    let input = container.querySelector('input[type="checkbox"]');
 
-    if (e.target.classList.contains('fa-ellipsis')) return;
-    if (e.target.classList.contains('check')) return;
+    if (e.target.closest('.exclude-me') || e.target.closest('.editdel-container')) return;
 
     input.checked ? (input.checked = false) : (input.checked = true);
 
@@ -183,6 +182,7 @@ class Todo {
       this.todoInput.focus();
 
       elipsis.nextElementSibling.classList.add('hidden');
+      elipsis.nextElementSibling.classList.remove('flex');
 
       this.#todoLists.forEach((todo) => {
         if (todo.isEditing) todo.isEditing = false;
@@ -218,21 +218,21 @@ class Todo {
       html += `
         <div class="todo--container relative flex cursor-pointer items-center justify-between border-b border-veryDarkGrayishBlue bg-veryLightGray px-5 py-4 dark:border-veryLightGrayishBlue dark:bg-veryDarkDesaturatedBlue" draggable="true">
           <div class="todo-content flex items-center">
-            <input type="checkbox" class="mr-3 check cursor-pointer" id="${todo.id}"/>
+            <input type="checkbox" class="mr-3 exclude-me cursor-pointer" id="${todo.id}"/>
             <p class="text-sm text-veryDarkGrayishBlue dark:text-lightGrayishBlue">${todo.todo}</p>
           </div>
 
-          <i class="fa-solid fa-ellipsis fa-lg cursor-pointer text-veryDarkGrayishBlue dark:text-lightGrayishBlue"></i>
+          <i class="fa-solid exclude-me fa-ellipsis fa-lg cursor-pointer text-veryDarkGrayishBlue dark:text-lightGrayishBlue"></i>
 
             <div class="editdel-container absolute right-0 top-8 hidden h-[80px] w-[100px] flex-col justify-center gap-[0.5rem] rounded-lg bg-veryLightGray px-2 z-10 dark:bg-veryDarkGrayishBlue opacity-0">
-                <div class="edit-container flex cursor-pointer items-center justify-around" id="${todo.id}">
-                  <i class="fa-solid fa-pen-to-square text-veryDarkGrayishBlue dark:text-lightGrayishBlue"></i>
-                  <p class="text-sm text-veryDarkGrayishBlue dark:text-lightGrayishBlue">Edit</p>
+                <div class="exclude-me edit-container flex cursor-pointer items-center justify-around" id="${todo.id}">
+                  <i class="exclude-me fa-solid fa-pen-to-square text-veryDarkGrayishBlue dark:text-lightGrayishBlue"></i>
+                  <p class="exclude-me text-sm text-veryDarkGrayishBlue dark:text-lightGrayishBlue">Edit</p>
                 </div>
 
-                <div class="delete-container flex w-full cursor-pointer items-center justify-around border-t border-veryDarkGrayishBlue pt-2" id="${todo.id}">
-                  <i class="fa-solid fa-trash text-veryDarkGrayishBlue dark:text-lightGrayishBlue"></i>
-                  <p class="text-sm text-veryDarkGrayishBlue dark:text-lightGrayishBlue">Delete</p>
+                <div class="exclude-me delete-container flex w-full cursor-pointer items-center justify-around border-t border-veryDarkGrayishBlue pt-2" id="${todo.id}">
+                  <i class="exclude-me fa-solid fa-trash text-veryDarkGrayishBlue dark:text-lightGrayishBlue"></i>
+                  <p class="exclude-me text-sm text-veryDarkGrayishBlue dark:text-lightGrayishBlue">Delete</p>
                 </div>
               </div>
         </div>`;
