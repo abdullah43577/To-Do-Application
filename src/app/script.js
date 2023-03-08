@@ -16,7 +16,6 @@ class Todo {
     this.completedBtn = document.querySelector('.completed');
     this.navBtns = document.querySelectorAll('.nav');
     this.bgToggle = document.querySelector('.bgToggle');
-    this.body = document.querySelector('body');
     this.itemsCounter = document.querySelector('.itemsCounter');
     this.clearCompleted = document.querySelector('.clearCompleted');
 
@@ -74,9 +73,10 @@ class Todo {
   }
 
   _toggleBackgroundColor() {
-    this.body.classList.toggle('dark');
+    // accessing the root element of the document
+    document.documentElement.classList.toggle('dark');
 
-    if (this.body.classList.contains('dark')) {
+    if (this.document.documentElement.classList.contains('dark')) {
       this.bgToggle.src = sunIcon;
       this.bgToggle.alt = 'icon sun';
     } else {

@@ -577,7 +577,6 @@ class Todo {
         this.completedBtn = document.querySelector(".completed");
         this.navBtns = document.querySelectorAll(".nav");
         this.bgToggle = document.querySelector(".bgToggle");
-        this.body = document.querySelector("body");
         this.itemsCounter = document.querySelector(".itemsCounter");
         this.clearCompleted = document.querySelector(".clearCompleted");
         this.form.addEventListener("submit", this._addTodoItem.bind(this));
@@ -626,8 +625,9 @@ class Todo {
         setTimeout(()=>container.classList.add("dragging"), 0);
     }
     _toggleBackgroundColor() {
-        this.body.classList.toggle("dark");
-        if (this.body.classList.contains("dark")) {
+        // accessing the root element of the document
+        document.documentElement.classList.toggle("dark");
+        if (this.document.documentElement.classList.contains("dark")) {
             this.bgToggle.src = (0, _iconSunSvgDefault.default);
             this.bgToggle.alt = "icon sun";
         } else {
