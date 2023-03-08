@@ -557,14 +557,6 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"dUn2x":[function(require,module,exports) {
-// Todo1: Users must be able to create todo list items ✅
-// Todo2: Users must be able to mark todo as completed ✅
-// Todo3: users must be able to edit todo list items ✅
-// Todo4: users must be able to delete todo list items ✅
-// Todo5: users must be able to toggle between the (All, Active and Complete Tabs) ✅
-// Todo6: users must be able to reorder list items using drag 'n' drop ✅
-// Todo7: users must be able to toggle background colors ✅
-// Todo8: Todo list items must persist in localStorage ✅
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _iconSunSvg = require("../images/icon-sun.svg");
 var _iconSunSvgDefault = parcelHelpers.interopDefault(_iconSunSvg);
